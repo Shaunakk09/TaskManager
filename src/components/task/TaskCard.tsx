@@ -13,9 +13,9 @@ const TaskCard = ({ task, onEdit, onStatusChange }: TaskCardProps) => {
     switch (status) {
       case 'todo':
         return 'bg-yellow-100 text-yellow-800';
-      case 'in-progress':
+      case 'in_progress':
         return 'bg-blue-100 text-blue-800';
-      case 'completed':
+      case 'done':
         return 'bg-green-100 text-green-800';
       default:
         return 'bg-gray-100 text-gray-800';
@@ -102,8 +102,8 @@ const TaskCard = ({ task, onEdit, onStatusChange }: TaskCardProps) => {
           className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
         >
           <option value="todo">To Do</option>
-          <option value="in-progress">In Progress</option>
-          <option value="completed">Completed</option>
+          <option value="in_progress">In Progress</option>
+          <option value="done">Completed</option>
         </select>
       </div>
     </div>

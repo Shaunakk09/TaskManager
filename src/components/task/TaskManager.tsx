@@ -38,7 +38,7 @@ const TaskManager = () => {
         return;
       }
       setTasks(data ?? []);
-    } catch (err) {
+    } catch {
       setError('Failed to fetch tasks');
     }
   };

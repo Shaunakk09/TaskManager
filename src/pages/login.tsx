@@ -26,7 +26,7 @@ export default function Login() {
       } else {
         await router.push('/');
       }
-    } catch (err) {
+    } catch {
       setError('An unexpected error occurred');
     }
   };

@@ -26,13 +26,13 @@ export function TaskProvider({ children }: { children: ReactNode }) {
       try {
         setIsLoading(true);
         const result = await taskService.getTasks();
-        if (result.success && result.data) {
+        if (result.data) {
           setTasks(result.data.map(task => ({
             ...task,
-            status: (task.status ?? 'todo') as Task['status']
+            status: task.status ?? 'todo'
           })));
         } else {
-          setError(result.error ?? 'Failed to fetch tasks');
+          setError(String(result.error) ?? 'Failed to fetch tasks');
         }
       } catch (err) {
         setError('An error occurred while fetching tasks');
@@ -48,14 +48,14 @@ export function TaskProvider({ children }: { children: ReactNode }) {
   const addTask = async (task: Task) => {
     try {
       const result = await taskService.createTask(task);
-      if (result.success && result.data) {
+      if (result.data) {
         const newTask: Task = {
           ...result.data,
-          status: (result.data.status ?? 'todo') as Task['status']
+          status: result.data.status ?? 'todo'
         };
         setTasks(prevTasks => [...prevTasks, newTask]);
       } else {
-        setError(result.error ?? 'Failed to create task');
+        setError(String(result.error) ?? 'Failed to create task');
       }
     } catch (err) {
       setError('An error occurred while creating task');
@@ -66,10 +66,10 @@ export function TaskProvider({ children }: { children: ReactNode }) {
   const updateTask = async (taskId: string, taskData: Partial<Task>) => {
     try {
       const result = await taskService.updateTask(taskId, taskData);
-      if (result.success && result.data) {
+      if (result.data) {
         const updatedTask: Task = {
           ...result.data,
-          status: (result.data.status ?? 'todo') as Task['status']
+          status: result.data.status ?? 'todo'
         };
         setTasks(prevTasks =>
           prevTasks.map(task =>
@@ -77,7 +77,7 @@ export function TaskProvider({ children }: { children: ReactNode }) {
           )
         );
       } else {
-        setError(result.error ?? 'Failed to update task');
+        setError(String(result.error) ?? 'Failed to update task');
       }
     } catch (err) {
       setError('An error occurred while updating task');
@@ -88,10 +88,10 @@ export function TaskProvider({ children }: { children: ReactNode }) {
   const deleteTask = async (taskId: string) => {
     try {
       const result = await taskService.deleteTask(taskId);
-      if (result.success) {
+      if (!result.error) {
         setTasks(prevTasks => prevTasks.filter(task => task.id !== taskId));
       } else {
-        setError(result.error ?? 'Failed to delete task');
+        setError(String(result.error) ?? 'Failed to delete task');
       }
     } catch (err) {
       setError('An error occurred while deleting task');

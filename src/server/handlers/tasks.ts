@@ -23,7 +23,7 @@ export const getTasks: APIGatewayProxyHandlerV2 = async () => {
       statusCode: 200,
       body: JSON.stringify(data),
     };
-  } catch (error) {
+  } catch {
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed to fetch tasks' }),
@@ -54,7 +54,7 @@ export const createTask: APIGatewayProxyHandlerV2 = async (event) => {
       statusCode: 201,
       body: JSON.stringify(data),
     };
-  } catch (error) {
+  } catch {
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed to create task' }),
@@ -88,7 +88,7 @@ export const updateTask: APIGatewayProxyHandlerV2 = async (event) => {
       statusCode: 200,
       body: JSON.stringify(data),
     };
-  } catch (error) {
+  } catch {
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed to update task' }),
@@ -118,7 +118,7 @@ export const deleteTask: APIGatewayProxyHandlerV2 = async (event) => {
       statusCode: 204,
       body: '',
     };
-  } catch (error) {
+  } catch {
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed to delete task' }),

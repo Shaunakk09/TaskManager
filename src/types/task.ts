@@ -2,8 +2,8 @@ export interface Task {
   id?: string;
   title: string;
   description?: string;
-  status: 'todo' | 'in-progress' | 'completed';
-  user_id?: string;
+  status: 'todo' | 'in_progress' | 'done';
+  user_id: string;
   created_at?: string;
   assignee?: string;
   due_date?: string;

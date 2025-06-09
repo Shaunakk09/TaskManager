@@ -100,7 +100,7 @@ const TaskForm = ({ initialTask, onSubmit, onCancel, mode }: TaskFormProps) => {
         let result;
         if (mode === 'create') {
           // Remove any id field and ensure user_id is set
-          const { id, created_at, ...taskData } = task;
+          const { ...taskData } = task;
           if (!taskData.title) { // user?.id check already done above
             setErrors({ ...errors, submit: 'Missing required fields.' });
             return;
