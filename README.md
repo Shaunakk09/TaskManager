@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-EasySLR is a modern web application built with Next.js, TypeScript, and Supabase, designed to provide sign language recognition and learning capabilities. The application follows a well-structured architecture with clear separation of concerns.
+EasySLR is a modern web application built with Next.js, TypeScript, and Supabase. The application follows a well-structured architecture with clear separation of concerns.
 
 ### Tech Stack
 
