@@ -92,9 +92,27 @@ yarn install
 yarn dev
 ```
 
-## Deployment
+## Deployment with SST
 
-The application is configured for deployment using SST (Serverless Stack). The deployment process is automated through the CI/CD pipeline.
+This project uses SST (Serverless Stack) for deployment. SST helps you deploy your Next.js application and its backend resources to AWS.
+
+### Deploying to Production
+
+To deploy your latest changes to production, run:
+
+```sh
+npx sst deploy --stage production
+```
+
+This command builds your Next.js app and deploys it along with any backend resources defined in your SST configuration.
+
+### Environment Variables
+
+Make sure your production environment variables are set correctly. You can set them in your AWS environment or in a `.env.prod` file (but never commit secrets to git).
+
+### API Routes
+
+This project uses Next.js API routes for server-side operations. The API routes are located in the `src/pages/api` directory. SST is used for deployment, not for API handling.
 
 ## Security Considerations
 
