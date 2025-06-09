@@ -14,7 +14,7 @@ export const supabase = createClient(supabaseUrl, supabaseKey);
 // Create a Supabase client with the service role key for admin operations
 export const supabaseAdmin = process.env.SUPABASE_SERVICE_ROLE_KEY
   ? createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL ?? '',
-      process.env.SUPABASE_SERVICE_ROLE_KEY
+      supabaseUrl,
+      supabaseKey
     )
   : null; 

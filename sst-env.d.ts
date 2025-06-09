@@ -9,6 +9,10 @@ declare module "sst" {
       "type": "sst.aws.Nextjs"
       "url": string
     }
+    "api": {
+      "type": "sst.aws.ApiGatewayV1"
+      "url": string
+    }
   }
 }
 /// <reference path="sst-env.d.ts" />
